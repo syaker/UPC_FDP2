@@ -10,8 +10,8 @@ public class Usuario implements IUsuario {
     private String fechaIngreso;
     private String inicioSesion;
     private String correoElectronico;
-    private String telefono;
-    private String salario;
+    private int telefono;
+    private double salario;
     private boolean anulado;
 
     public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, String telefono, String salario) {
@@ -123,11 +123,6 @@ public class Usuario implements IUsuario {
 
     public void setInicioSesion(String inicioSesion) {
         this.inicioSesion = inicioSesion;
-    }
-
-    @Override
-    public boolean ingresarAlSistema() {
-        return true;
     }
     @Override
     public boolean salirSistema() {
