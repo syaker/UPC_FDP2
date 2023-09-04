@@ -5,15 +5,15 @@ public class Menu {
     private String precio;
     private String fechaCreacion;
     private String descripcion;
-    private String coodigo;
+    private String codigo;
     private String[] ingredientes;
 
-    public Menu(String nombre, String precio, String fechaCreacion, String descripcion, String coodigo, String[] ingredientes) {
+    public Menu(String nombre, String precio, String fechaCreacion, String descripcion, String codigo, String[] ingredientes) {
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;
         this.descripcion = descripcion;
-        this.coodigo = coodigo;
+        this.codigo = codigo;
         this.ingredientes = ingredientes;
     }
 
@@ -50,11 +50,11 @@ public class Menu {
     }
 
     public String getCoodigo() {
-        return coodigo;
+        return codigo;
     }
 
     public void setCoodigo(String coodigo) {
-        this.coodigo = coodigo;
+        this.codigo = coodigo;
     }
 
     public String[] getIngredientes() {

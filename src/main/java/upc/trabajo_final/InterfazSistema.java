@@ -1,24 +1,34 @@
 package upc.trabajo_final;
 
-public class InterfazSistema {
+public class InterfazSistema implements IInterfazSistema {
 
-    public void iniciarSesion () {
-
-    }
-
-    public void escogerLenguaje () {
+    @Override
+    public void iniciarSesion() {
 
     }
 
-    public void escogerTipoDeUsuario () {
+    @Override
+    public void escogerLenguaje() {
 
     }
 
-    public void escogerOpcionesSegunTipoUsuario () {
+    @Override
+    public void escogerTipoDeUsuario() {
 
     }
 
-    public void salirDelSistema () {
+    @Override
+    public void escogerOpcionesSegunTipoUsuario() {
 
+    }
+
+    @Override
+    public void salirDelSistema() {
+
+    }
+
+    @Override
+    public boolean ingresarAlSistema() {
+    return true;
     }
 }
