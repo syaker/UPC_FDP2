@@ -14,7 +14,7 @@ public class Usuario implements IUsuario {
     private double salario;
     private boolean anulado;
 
-    public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, String telefono, String salario) {
+    public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         this.tipoUsuario = tipoUsuario;
         this.numeroDocumento = numeroDocumento;
         this.nombre = nombre;
@@ -45,19 +45,19 @@ public class Usuario implements IUsuario {
         this.correoElectronico = correoElectronico;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
-    public String getSalario() {
+    public double getSalario() {
         return salario;
     }
 
-    public void setSalario(String salario) {
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 
