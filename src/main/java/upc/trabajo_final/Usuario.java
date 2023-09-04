@@ -135,4 +135,7 @@ public class Usuario implements IUsuario {
     @Override
     public void editarPedido() {
     }
+    @Override
+    public void consultarMenu() {
+    }
 }
