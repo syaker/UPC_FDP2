@@ -1,17 +1,15 @@
 package upc.trabajo_final;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class InterfazSistema implements IInterfazSistema {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         int opcionSeleccionada = 0;
         Scanner sc = new Scanner(System.in);
 
         do {
             mostrarMenu(opcionSeleccionada);
             opcionSeleccionada = sc.nextInt();
-            Runtime.getRuntime().exec("clear");
         } while (opcionSeleccionada != -1);
     }
 
@@ -60,7 +58,7 @@ public class InterfazSistema implements IInterfazSistema {
         System.out.println("9. Consultar carta comidas");
         System.out.println("10. Consultar monto de venta total por cajero");
         System.out.println("11. Crear clientes");
-        System.out.println("12. Salir");
+        System.out.println("-1. Salir");
     }
 
     static void opcionesAdministrador() {
@@ -71,7 +69,7 @@ public class InterfazSistema implements IInterfazSistema {
         System.out.println("16. Consultar lista general de pedidos");
         System.out.println("17. Editar pedidos");
         System.out.println("18. Agregar productos al menu");
-        System.out.println("19. Salir");
+        System.out.println("-1. Salir");
     }
 
     static void opcionesCajero() {
