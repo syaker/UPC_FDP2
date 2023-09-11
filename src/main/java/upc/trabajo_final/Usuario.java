@@ -1,6 +1,8 @@
 package upc.trabajo_final;
 
 public class Usuario implements IUsuario {
+    String[][] usuarios = {{"mozo","9882985", "Ana", "Perez", "Rodriguez", "20", "04/09/2023", "si", "anaperrez"}};
+
     private String tipoUsuario;
     private String numeroDocumento;
     private String nombre;
