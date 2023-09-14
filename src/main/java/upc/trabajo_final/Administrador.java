@@ -102,13 +102,17 @@ public class Administrador extends Usuario implements IAdministrador {
 
     }
     public void consultarRankingClientesFrecuentes() {
-        /*Para que el método consultarMontoVentaTotal() de la clase Cajero funcione correctamente, necesitas tener acceso la lista
-        : la lista de pedidos (listPedidos) . Con su respectivo Getter.*/
+        /*Para que el método consultarRankingClientesFrecuentes() de la clase Administrador funcione correctamente, necesitas tener acceso a dos listas
+        : la lista de pedidos (listPedidos) y la lista clientes (listClientes). Con sus respectivos Getters.*/
         // Obtener la lista de pedidos
         Main objetoMain = new Main();
-        /*En donde esta subrayado Main, va la clase donde esta la lista de pedidos,*/
+        /*En donde esta subrayado Main, va la clase donde esta la lista de pedidos y clientes, en caso estas listas esten en diferentes clases, crear una para cada clase.*/
         List<Pedido> listaPedido = objetoMain.getListPedidos();
-        /*Cuando se cree la lista de Pedidos y su get, dejara de votar error*/
+        /*Cuando se cree la lista de Pedidos y su get, dejara de votar error, en donde dice "objetoMain." poner en base a como lo nombraste en el new de arriba*/
+
+        // Obtener la lista de clientes
+        List<Cliente> clientes = objetoMain.getListClientes();
+        /*Cuando se cree la lista de Clientes y su get, dejara de votar error, en donde dice "objetoMain." poner en base a como lo nombraste en el new del principio del metodo*/
 
         // Crear un mapa para contar la cantidad de pedidos por código de cliente
         Map<String, Integer> pedidosPorCliente = new HashMap<>();
@@ -116,7 +120,7 @@ public class Administrador extends Usuario implements IAdministrador {
         for (Pedido pedido : listaPedido) {
             String codigoCliente = pedido.getCodigoCliente();
 
-            // Verificar si el cliente ya estahv en el mapa, si no, agregarlo con 1 pedido
+            // Verificar si el cliente ya está en el mapa, si no, agregarlo con 1 pedido
             if (pedidosPorCliente.containsKey(codigoCliente)) {
                 int pedidosPrevios = pedidosPorCliente.get(codigoCliente);
                 pedidosPorCliente.put(codigoCliente, pedidosPrevios + 1);
@@ -140,7 +144,26 @@ public class Administrador extends Usuario implements IAdministrador {
         System.out.println("Ranking de Clientes Frecuentes:");
         int posicion = 1;
         for (Map.Entry<String, Integer> entry : listaClientesFrecuentes) {
-            System.out.println("Posición " + posicion + ": Código de Cliente: " + entry.getKey() + ", Cantidad de Pedidos: " + entry.getValue());
+            System.out.println("-------------------------------");
+            System.out.println("Posición " + posicion + ":");
+
+            // Mostrar los datos del cliente
+            for (Cliente cliente : clientes) {
+                if (cliente.getCodigoCliente().equals(entry.getKey())) {
+                    /*Cuando se cree la lista Clientes y su get, dejara de votar error*/
+                    System.out.println("[Nombre: " + cliente.getNombre());
+                    System.out.println("Primer Apellido: " + cliente.getPrimerApellido());
+                    System.out.println("Segundo Apellido: " + cliente.getSegundoApellido());
+                    System.out.println("Edad: " + cliente.getEdad());
+                    System.out.println("Fecha de Registro: " + cliente.getFechaRegistro());
+                    System.out.println("Correo Electrónico: " + cliente.getCorreoElectronico());
+                    System.out.println("Teléfono: " + cliente.getTelefono());
+                    break; // Salir después de encontrar al cliente
+                }
+            }
+
+            System.out.println("Cantidad de Pedidos: " + entry.getValue()+"]");
+            System.out.println("-------------------------------");
             posicion++;
         }
     }
