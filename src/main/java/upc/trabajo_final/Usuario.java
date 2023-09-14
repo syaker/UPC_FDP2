@@ -38,18 +38,22 @@ public class Usuario implements IUsuario {
     }
 
     public boolean isAnulado() {
+
         return anulado;
     }
 
     public void setAnulado(boolean anulado) {
+
         this.anulado = anulado;
     }
 
     public String getCorreoElectronico() {
+
         return correoElectronico;
     }
 
     public void setCorreoElectronico(String correoElectronico) {
+
         this.correoElectronico = correoElectronico;
     }
 

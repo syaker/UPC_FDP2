@@ -1,10 +1,9 @@
 package upc.trabajo_final;
 
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Menu {
+public class Producto {
 
     //Atributos
     private String nombre;
@@ -12,17 +11,15 @@ public class Menu {
     private Date fechaCreacion;
     private String descripcion;
     private String codigo;
-    private String ingredientes;
 
 
     //Constructor
-    public Menu(String nombre, double precio, Date fechaCreacion, String descripcion, String codigo, String ingredientes) {
+    public Producto(String nombre, double precio, Date fechaCreacion, String descripcion, String codigo) {
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;
         this.descripcion = descripcion;
         this.codigo = codigo;
-        this.ingredientes = ingredientes;
     }
 
     //Getter & Setter
@@ -76,13 +73,4 @@ public class Menu {
         this.codigo = coodigo;
     }
 
-    public String getIngredientes() {
-
-        return ingredientes;
-    }
-
-    public void setIngredientes(String ingredientes) {
-
-        this.ingredientes = ingredientes;
-    }
 }
