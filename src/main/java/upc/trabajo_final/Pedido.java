@@ -1,9 +1,16 @@
 package upc.trabajo_final;
 
 public class Pedido {
+    String[][] pedidos = {
+            {"000001","1", "100.5", "12/09/2023", "09:13", "9882985", "04/09/2023", "true", "0"},
+            {"000002","1", "13.0", "12/09/2023", "13:13", "9882985", "19/11/2022", "true", "0"},
+            {"000003","1", "123.8", "12/09/2023", "17:13", "9882985", "28/02/2023", "true", "0"},
+            {"000004","1", "55.90", "12/09/2023", "06:13", "9882985", "23/05/2023", "true", "0"},
+            {"000005","1", "27.30", "12/09/2023", "21:13", "9882985", "04/06/2023", "true", "0"},
+    };
+
     private String codigoPedido;
-    private String[] idsComidasRelacionadas;
-    private String[] idsBebidasRelacionadas;
+    private String[] idsProductoRelacionado;
     private double montoTotal;
     private String fechaPedido;
     private String horaPedido;
@@ -11,10 +18,9 @@ public class Pedido {
     private boolean cobrado;
     private boolean anulado;
 
-    public Pedido(String codigoPedido, String[] idsComidasRelacionadas, String[] idsBebidasRelacionadas, double montoTotal, String fechaPedido, String horaPedido, String codigoCliente, boolean cobrado, boolean anulado) {
+    public Pedido(String codigoPedido, String[] idsProductoRelacionado, double montoTotal, String fechaPedido, String horaPedido, String codigoCliente, boolean cobrado, boolean anulado) {
         this.codigoPedido = codigoPedido;
-        this.idsComidasRelacionadas = idsComidasRelacionadas;
-        this.idsBebidasRelacionadas = idsBebidasRelacionadas;
+        this.idsProductoRelacionado = idsProductoRelacionado;
         this.montoTotal = montoTotal;
         this.fechaPedido = fechaPedido;
         this.horaPedido = horaPedido;
@@ -31,20 +37,12 @@ public class Pedido {
         this.codigoPedido = codigoPedido;
     }
 
-    public String[] getIdsComidasRelacionadas() {
-        return idsComidasRelacionadas;
+    public String[] getIdsProductoRelacionado() {
+        return idsProductoRelacionado;
     }
 
-    public void setIdsComidasRelacionadas(String[] idsComidasRelacionadas) {
-        this.idsComidasRelacionadas = idsComidasRelacionadas;
-    }
-
-    public String[] getIdsBebidasRelacionadas() {
-        return idsBebidasRelacionadas;
-    }
-
-    public void setIdsBebidasRelacionadas(String[] idsBebidasRelacionadas) {
-        this.idsBebidasRelacionadas = idsBebidasRelacionadas;
+    public void setIdsProductosRelacionados(String[] idsProducto) {
+        this.idsProductoRelacionado = idsProducto;
     }
 
     public double getMontoTotal() {
