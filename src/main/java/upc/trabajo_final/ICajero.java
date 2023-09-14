@@ -12,4 +12,6 @@ public interface ICajero extends IUsuario {
     void listarClientes();
 
     void cambiarEstadoDelPedido();
+
+    void consultarMontoVentaTotal();
 }
