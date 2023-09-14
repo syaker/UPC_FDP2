@@ -9,6 +9,8 @@ import java.util.*;
 
 
 public class Cajero extends Usuario implements ICajero {
+
+
     public Cajero(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         super(tipoUsuario, numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaIngreso, inicioSesion, correoElectronico, telefono, salario);
     }
@@ -21,14 +23,14 @@ public class Cajero extends Usuario implements ICajero {
 
         //2. Preguntar que metodo de pago quiere usar. [Hay efectivo, tarjeta, Yape y Plin]
 
-        public void elegirMetodo(){
+        public void elegirMetodo() {
             //Atributos
             static class metodoPago(){
                 System.out.println("¿Qué método de pago desea usar?");
                 Scanner sc = new Scanner(System.in);
-                metodoPago = sc.nextLine();
+                String metodoPago = sc.nextLine();
 
-            }*//*
+            }
 
 
 
