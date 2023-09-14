@@ -68,9 +68,9 @@ public class Cajero extends Usuario implements ICajero {
     }
 
 
-    // ARREGLAR ESTA PARTE DEL CODIGO Y MOVERLO QUIZA A USUARIO
-    @Override
     public void consultarMontoVentaTotal() {
+        /*Para que el método consultarMontoVentaTotal() de la clase Cajero funcione correctamente, necesitas tener acceso a dos listas
+        : la lista de pedidos (listPedidos) y la lista de cajeros (listCajeros). Con sus respectivos Getters.*/
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese su contraseña (DNI): ");
         String contraseña = scanner.nextLine();
@@ -78,7 +78,9 @@ public class Cajero extends Usuario implements ICajero {
         List<String> dniLista = new ArrayList<>();
         //Agregando la lista de Cajeros:
         Main objetoMain = new Main();
+        /*En donde esta subrayado Main, va la clase donde esta la lista de cajeros y pedidos,*/
         List<Cajero> listaCajero = objetoMain.getListCajeros();
+        /*Cuando se cree la lista de Cajeros y su get, dejara de votar error*/
 
         for (Cajero datosCajeros : listaCajero) {
             //la listaDatosCajeros será la lista que crearemos para añadir a los cajeros y sus datos
@@ -88,17 +90,34 @@ public class Cajero extends Usuario implements ICajero {
         if (dniLista.contains(contraseña)) {
             //Agregando la lista de pedidos
             List<Pedido> listaPedido = objetoMain.getListPedidos();
+            /*Cuando se cree la lista de Pedidos y su get, dejara de votar error*/
 
-            // Crear la lista para almacenar los pedidos ordenados cronológicamente
-            List<Pedido> pedidosOrdenados = new ArrayList<>(listaPedido);
+            // Crear un mapa para almacenar los montos totales agrupados por fecha
+            Map<String, Double> montosPorFecha = new HashMap<>();
 
-            // Ordenar los pedidos por fecha en orden ascendente (cronológico)
-            Collections.sort(pedidosOrdenados, new Comparator<Pedido>() {
-                public int compare(Pedido pedido1, Pedido pedido2) {
-                    // Parsear las fechas y compararlas
+            for (Pedido pedido : listaPedido) {
+                String fechaPedido = pedido.getFechaPedido();
+                double montoTotal = pedido.getMontoTotal();
+
+                // Si la fecha ya existe en el mapa, suma el monto total al valor existente
+                if (montosPorFecha.containsKey(fechaPedido)) {
+                    double montoExistente = montosPorFecha.get(fechaPedido);
+                    montosPorFecha.put(fechaPedido, montoExistente + montoTotal);
+                } else {
+                    montosPorFecha.put(fechaPedido, montoTotal);
+                }
+            }
+
+            // Convertir el mapa en una lista de entradas para ordenar por fecha
+            List<Map.Entry<String, Double>> listaMontosPorFecha = new ArrayList<>(montosPorFecha.entrySet());
+
+            // Ordenar la lista por fecha en orden cronológico
+            Collections.sort(listaMontosPorFecha, new Comparator<Map.Entry<String, Double>>() {
+                @Override
+                public int compare(Map.Entry<String, Double> entry1, Map.Entry<String, Double> entry2) {
                     try {
-                        Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(pedido1.getFechaPedido());
-                        Date fecha2 = new SimpleDateFormat("yyyy-MM-dd").parse(pedido2.getFechaPedido());
+                        Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(entry1.getKey());
+                        Date fecha2 = new SimpleDateFormat("yyyy-MM-dd").parse(entry2.getKey());
                         return fecha1.compareTo(fecha2);
                     } catch (ParseException e) {
                         e.printStackTrace();
@@ -107,14 +126,13 @@ public class Cajero extends Usuario implements ICajero {
                 }
             });
 
-            // Imprimir los pedidos ordenados por fecha
-            for (Pedido pedido : pedidosOrdenados) {
-                System.out.println("Fecha: " + pedido.getFechaPedido() + ", Monto Total: " + pedido.getMontoTotal());
+            // Imprimir los montos totales agrupados por fecha en orden cronológico
+            for (Map.Entry<String, Double> entry : listaMontosPorFecha) {
+                System.out.println("Fecha: " + entry.getKey() + ", Monto Total: " + entry.getValue());
             }
         } else {
             System.out.println("Contraseña incorrecta. No tiene acceso.");
         }
     }
-
 }
 
