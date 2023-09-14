@@ -1,15 +1,20 @@
 package upc.trabajo_final;
 
+import java.util.Scanner;
+
 public interface IInterfazSistema {
-    void iniciarSesion();
+    static void main(String[] args) {}
+    static void mostrarMenu(int opcionSeleccionada) {}
 
-    void escogerLenguaje();
+    static void iniciarSesion() {}
 
-    void escogerTipoDeUsuario();
+    static void escogerLenguaje() {}
 
-    void escogerOpcionesSegunTipoUsuario();
+    static void opcionesMozo() {}
 
-    void salirDelSistema();
+    static void opcionesAdministrador() {}
+
+    static void opcionesCajero() {}
 
     boolean ingresarAlSistema();
 }

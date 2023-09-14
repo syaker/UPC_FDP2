@@ -1,6 +1,11 @@
 package upc.trabajo_final;
 
-import java.util.Scanner;
+
+import com.sun.tools.javac.Main;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 
 public class Cajero extends Usuario implements ICajero {
@@ -60,6 +65,55 @@ public class Cajero extends Usuario implements ICajero {
     @Override
     public void cambiarEstadoDelPedido() {
 
+    }
+
+
+    // ARREGLAR ESTA PARTE DEL CODIGO Y MOVERLO QUIZA A USUARIO
+    @Override
+    public void consultarMontoVentaTotal() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese su contraseña (DNI): ");
+        String contraseña = scanner.nextLine();
+        // Crear la dniLista para almacenar los DNI
+        List<String> dniLista = new ArrayList<>();
+        //Agregando la lista de Cajeros:
+        Main objetoMain = new Main();
+        List<Cajero> listaCajero = objetoMain.getListCajeros();
+
+        for (Cajero datosCajeros : listaCajero) {
+            //la listaDatosCajeros será la lista que crearemos para añadir a los cajeros y sus datos
+            dniLista.add(datosCajeros.getNumeroDocumento());
+        }
+
+        if (dniLista.contains(contraseña)) {
+            //Agregando la lista de pedidos
+            List<Pedido> listaPedido = objetoMain.getListPedidos();
+
+            // Crear la lista para almacenar los pedidos ordenados cronológicamente
+            List<Pedido> pedidosOrdenados = new ArrayList<>(listaPedido);
+
+            // Ordenar los pedidos por fecha en orden ascendente (cronológico)
+            Collections.sort(pedidosOrdenados, new Comparator<Pedido>() {
+                public int compare(Pedido pedido1, Pedido pedido2) {
+                    // Parsear las fechas y compararlas
+                    try {
+                        Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(pedido1.getFechaPedido());
+                        Date fecha2 = new SimpleDateFormat("yyyy-MM-dd").parse(pedido2.getFechaPedido());
+                        return fecha1.compareTo(fecha2);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        return 0; // Manejo de error
+                    }
+                }
+            });
+
+            // Imprimir los pedidos ordenados por fecha
+            for (Pedido pedido : pedidosOrdenados) {
+                System.out.println("Fecha: " + pedido.getFechaPedido() + ", Monto Total: " + pedido.getMontoTotal());
+            }
+        } else {
+            System.out.println("Contraseña incorrecta. No tiene acceso.");
+        }
     }
 
 }
