@@ -52,6 +52,7 @@ public class Pedido {
     }
 
     public void setMontoTotal(double montoTotal) {
+
         this.montoTotal = montoTotal;
     }
 
