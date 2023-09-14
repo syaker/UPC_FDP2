@@ -1,14 +1,22 @@
 package upc.trabajo_final;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Menu {
+
+    //Atributos
     private String nombre;
-    private String precio;
-    private String fechaCreacion;
+    private double precio;
+    private Date fechaCreacion;
     private String descripcion;
     private String codigo;
-    private String[] ingredientes;
+    private String ingredientes;
 
-    public Menu(String nombre, String precio, String fechaCreacion, String descripcion, String codigo, String[] ingredientes) {
+
+    //Constructor
+    public Menu(String nombre, double precio, Date fechaCreacion, String descripcion, String codigo, String ingredientes) {
         this.nombre = nombre;
         this.precio = precio;
         this.fechaCreacion = fechaCreacion;
@@ -17,51 +25,64 @@ public class Menu {
         this.ingredientes = ingredientes;
     }
 
+    //Getter & Setter
     public String getNombre() {
+
         return nombre;
     }
 
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
     }
 
     public String getPrecio() {
-        return precio;
+
+        return  "S/." + String.format("%.2f",precio);//2 decimales
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(double precio) {
+
         this.precio = precio;
     }
 
-    public String getFechaCreacion() {
+    public Date getFechaCreacion() {
+
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(String fechaCreacion) {
+    public void setFechaCreacion(Date fechaCreacion) {
+
         this.fechaCreacion = fechaCreacion;
     }
 
     public String getDescripcion() {
+
         return descripcion;
     }
 
     public void setDescripcion(String descripcion) {
+
         this.descripcion = descripcion;
     }
 
     public String getCoodigo() {
+
         return codigo;
     }
 
     public void setCoodigo(String coodigo) {
+
         this.codigo = coodigo;
     }
 
-    public String[] getIngredientes() {
+    public String getIngredientes() {
+
         return ingredientes;
     }
 
-    public void setIngredientes(String[] ingredientes) {
+    public void setIngredientes(String ingredientes) {
+
         this.ingredientes = ingredientes;
     }
 }
