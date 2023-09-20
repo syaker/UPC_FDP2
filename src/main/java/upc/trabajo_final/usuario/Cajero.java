@@ -1,16 +1,11 @@
 
-package upc.trabajo_final;
+package upc.trabajo_final.usuario;
 
 
-import com.sun.tools.javac.Main;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import upc.trabajo_final.usuario.Usuario;
 
 
-
-public class Cajero extends Usuario{
+public class Cajero extends Usuario {
     //Atributos
     private int numeroCaja;
 

@@ -1,4 +1,4 @@
-package upc.trabajo_final;
+package upc.trabajo_final.interfaz_sistema;
 
 import java.util.Scanner;
 

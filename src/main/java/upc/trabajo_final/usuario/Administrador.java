@@ -1,4 +1,4 @@
-package upc.trabajo_final;
+package upc.trabajo_final.usuario;
 
 public class Administrador extends Usuario implements IAdministrador {
 

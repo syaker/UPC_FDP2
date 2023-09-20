@@ -1,10 +1,9 @@
-package upc.trabajo_final;
+package upc.trabajo_final.interfaz_sistema;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class MenuSistema {
-    private ArrayList<ElementoMenu> elementos = new ArrayList<ElementoMenu>();
+    private ArrayList<ElementoMenu> elementos;
 
     public MenuSistema(ArrayList<ElementoMenu> elementos) {
         this.elementos = elementos;
@@ -28,5 +27,15 @@ public class MenuSistema {
         }
 
         return menuEncontrado;
+    }
+
+    public void encontrarYEjecutarAccionPorId(int idABuscar) {
+        for (int i=0; i < this.elementos.size(); i++) {
+            ElementoMenu opcion = this.elementos.get(i);
+
+            if (opcion.getIdElementoMenu() == idABuscar) {
+                opcion.ejecutarAccion(idABuscar);
+            }
+        }
     }
 }
