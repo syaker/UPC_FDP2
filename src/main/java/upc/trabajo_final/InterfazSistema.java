@@ -52,7 +52,6 @@ public class InterfazSistema implements IInterfazSistema {
         if (menu == null) {
             this.menuActual = menuIdioma;
         }
-
         menuActual.imprimirMenu();
     }
 
