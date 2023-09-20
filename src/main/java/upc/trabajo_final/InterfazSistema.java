@@ -1,79 +1,59 @@
 package upc.trabajo_final;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class InterfazSistema implements IInterfazSistema {
+    private int opcionSeleccionada = 0;
+    private MenuSistema menuActual = null;
+    private MenuSistema menuIdioma;
+
+    public InterfazSistema() {
+        // Creando todos los menues con los submenues asociados
+
+        // 1. Menu tipo de usuario
+
+            ArrayList<ElementoMenu> elementosMenuTipoUsuario = new ArrayList<ElementoMenu>();
+            elementosMenuTipoUsuario.add(new ElementoMenu(1, "Mozo", null));
+            elementosMenuTipoUsuario.add(new ElementoMenu(2, "Administrador", null));
+            elementosMenuTipoUsuario.add(new ElementoMenu(3, "Cajero", null));
+
+            MenuSistema menuTipoUsuario = new MenuSistema(elementosMenuTipoUsuario);
+
+        // 2. Menu idioma
+
+            // Creando el menu idioma y asignandole el menu sistema tipo de usuario
+            ArrayList<ElementoMenu> elementosMenuIdioma = new ArrayList<ElementoMenu>();
+            elementosMenuIdioma.add(new ElementoMenu(1, "Espanol", menuTipoUsuario));
+            elementosMenuIdioma.add(new ElementoMenu(2, "Ingles", menuTipoUsuario));
+
+            this.menuIdioma = new MenuSistema(elementosMenuIdioma);
+    }
 
     public static void main(String[] args) {
-        int opcionSeleccionada = 0;
+        InterfazSistema in = new InterfazSistema();
+        in.iniciarSistema();
+    }
+
+    public void iniciarSistema() {
         Scanner sc = new Scanner(System.in);
-
         do {
-            mostrarMenu(opcionSeleccionada);
-            opcionSeleccionada = sc.nextInt();
-        } while (opcionSeleccionada != -1);
+            this.mostrarMenu(this.menuActual);
+            this.opcionSeleccionada = sc.nextInt();
+            MenuSistema menuEncontrado = this.menuActual.encontrarMenuPorId(this.opcionSeleccionada);
+            if (menuEncontrado == null) {
+                // Ejecutar accion del menu
+            } else {
+                this.menuActual = menuEncontrado;
+            }
+        } while (this.opcionSeleccionada != -1);
     }
 
-    static void mostrarMenu(int opcionSeleccionada) {
-        switch (opcionSeleccionada) {
-            case 0:
-                escogerLenguaje();
-                break;
-
-            case 1:
-                escogerTipoDeUsuario();
-                break;
-
-            case 2:
-                opcionesMozo();
-                break;
-
-            case 3:
-                opcionesAdministrador();
-                break;
-
-            case 4:
-                opcionesCajero();
-                break;
+    public void mostrarMenu(MenuSistema menu) {
+        if (menu == null) {
+            this.menuActual = menuIdioma;
         }
-    }
 
-    static void escogerLenguaje() {
-        System.out.println("--------------------\n  Escoger lenguaje \n--------------------");
-        System.out.println("1. Español");
-        System.out.println("2. Inglés");
-    }
-
-    static void escogerTipoDeUsuario() {
-        System.out.println("--------------------\n  Escoger tipo de usuario \n--------------------");
-        System.out.println("3. Mozo");
-        System.out.println("4. Administrador");
-        System.out.println("5. Cajero");
-    }
-
-    static void opcionesMozo() {
-        System.out.println("--------------------\n  Escoger opcion \n--------------------");
-        System.out.println("6. Registrar y cobrar pedido");
-        System.out.println("7. Cobrar pedido mesa");
-        System.out.println("8. Consultar carta bebidas");
-        System.out.println("9. Consultar carta comidas");
-        System.out.println("10. Consultar monto de venta total por cajero");
-        System.out.println("11. Crear clientes");
-        System.out.println("-1. Salir");
-    }
-
-    static void opcionesAdministrador() {
-        System.out.println("--------------------\n  Escoger opcion \n--------------------");
-        System.out.println("13. Consultar total de pedidos");
-        System.out.println("14. Consultar total de ventas del dia");
-        System.out.println("15. Consultar ranking de clientes frecuentes");
-        System.out.println("16. Consultar lista general de pedidos");
-        System.out.println("17. Editar pedidos");
-        System.out.println("18. Agregar productos al menu");
-        System.out.println("-1. Salir");
-    }
-
-    static void opcionesCajero() {
-        System.out.println("--------------------\n  Escoger opcion \n--------------------");
+        menuActual.imprimirMenu();
     }
 
     @Override
