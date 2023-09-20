@@ -1,7 +1,4 @@
-package upc.trabajo_final;
-
-import java.util.ArrayList;
-import java.util.List;
+package upc.trabajo_final.menu;
 
 public class MenuManager {
     private MenuCarta menuCarta;

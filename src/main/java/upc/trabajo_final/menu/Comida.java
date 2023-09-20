@@ -1,4 +1,6 @@
-package upc.trabajo_final;
+package upc.trabajo_final.menu;
+
+import upc.trabajo_final.menu.Menu;
 
 public class Comida extends Menu {
 

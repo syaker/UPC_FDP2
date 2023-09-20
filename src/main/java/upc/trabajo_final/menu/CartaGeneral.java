@@ -1,4 +1,7 @@
-package upc.trabajo_final;
+package upc.trabajo_final.menu;
+
+import upc.trabajo_final.menu.MenuTipo;
+import upc.trabajo_final.menu.Producto;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,6 +1,8 @@
-package upc.trabajo_final;
+package upc.trabajo_final.usuario;
 
-public class Usuario implements IUsuario {
+import upc.trabajo_final.interfaz_sistema.IAccionMenu;
+
+public class Usuario implements IUsuario, IAccionMenu {
     String[][] usuarios = {
             {"mozo","9882985", "Ana", "Perez", "Rodriguez", "20", "04/09/2023", "si", "anaperez@gmail.com", "999324235", "2000", "0"},
             {"administrador","3298798", "Juan", "Martinat", "Chavez", "20", "19/11/2022", "si", "jmarti@gmail.com", "999767675", "2000", "0"},
@@ -21,6 +23,8 @@ public class Usuario implements IUsuario {
     private int telefono;
     private double salario;
     private boolean anulado;
+
+    public Usuario() {}
 
     public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         this.tipoUsuario = tipoUsuario;
@@ -143,11 +147,21 @@ public class Usuario implements IUsuario {
     @Override
     public void crearPedido() {
         // Aqui se crea una nueva instancia de objeto a partir de la clase Pedido
+        System.out.println("Pedido creadooooooo FYI");
     }
     @Override
     public void editarPedido() {
     }
     @Override
     public void consultarMenu() {
+    }
+
+    @Override
+    public void ejecutarAccion(int accionId) {
+        switch (accionId) {
+            case 1:
+                this.crearPedido();
+                break;
+        }
     }
 }
