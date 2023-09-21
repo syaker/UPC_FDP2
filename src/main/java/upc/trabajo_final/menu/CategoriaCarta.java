@@ -1,4 +1,6 @@
-package upc.trabajo_final;
+package upc.trabajo_final.menu;
+
+import upc.trabajo_final.menu.SubCategoriaCarta;
 
 import java.util.ArrayList;
 import java.util.List;

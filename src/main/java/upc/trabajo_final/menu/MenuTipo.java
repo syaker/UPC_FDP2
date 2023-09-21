@@ -1,6 +1,5 @@
-package upc.trabajo_final;
+package upc.trabajo_final.menu;
 
-import java.awt.*;
 import java.util.List;
 
 public class MenuTipo {

@@ -1,4 +1,6 @@
-package upc.trabajo_final;
+package upc.trabajo_final.usuario;
+
+import upc.trabajo_final.usuario.Usuario;
 
 public class Mozo extends Usuario {
     public Mozo(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {

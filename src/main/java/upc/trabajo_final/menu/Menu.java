@@ -1,4 +1,4 @@
-package upc.trabajo_final;
+package upc.trabajo_final.menu;
 
 
 public class Menu {
