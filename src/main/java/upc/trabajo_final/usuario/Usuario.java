@@ -5,13 +5,6 @@ import upc.trabajo_final.menu.MenuManager;
 import upc.trabajo_final.menu.CategoriaCarta;
 
 public class Usuario implements IUsuario, IAccionMenu {
-    String[][] usuarios = {
-            {"mozo","9882985", "Ana", "Perez", "Rodriguez", "20", "04/09/2023", "si", "anaperez@gmail.com", "999324235", "2000", "0"},
-            {"administrador","3298798", "Juan", "Martinat", "Chavez", "20", "19/11/2022", "si", "jmarti@gmail.com", "999767675", "2000", "0"},
-            {"cajero","3634643", "Nelly", "Tapia", "Ballena", "20", "28/02/2023", "si", "nellytb@gmail.com", "934534534", "1300", "0"},
-            {"mozo","3563456", "Gonzalo", "Lastra", "Fernandez", "20", "23/05/2023", "si", "gonza9899@gmail.com", "999435334", "5000", "0"},
-            {"mozo","5675675", "Carola", "Quintanilla", "Rodriguez", "20", "04/06/2023", "si", "caroquinta@gmail.com", "96977798", "2000", "0"},
-    };
 
     private String tipoUsuario;
     private String numeroDocumento;
@@ -26,8 +19,6 @@ public class Usuario implements IUsuario, IAccionMenu {
     private double salario;
     private boolean anulado;
 
-    public Usuario() {}
-
     public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         this.tipoUsuario = tipoUsuario;
         this.numeroDocumento = numeroDocumento;
@@ -41,58 +32,6 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.telefono = telefono;
         this.salario = salario;
         this.anulado = false;
-    }
-
-    public boolean isAnulado() {
-
-        return anulado;
-    }
-
-    public void setAnulado(boolean anulado) {
-
-        this.anulado = anulado;
-    }
-
-    public String getCorreoElectronico() {
-
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-
-        this.correoElectronico = correoElectronico;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
     }
 
     public String getNombre() {
@@ -165,6 +104,7 @@ public class Usuario implements IUsuario, IAccionMenu {
             System.out.println("Categoría de Comidas no encontrada.");
         }
     }
+
     @Override
     public boolean salirSistema() {
         return true;

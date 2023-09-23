@@ -9,4 +9,6 @@ public class Mozo extends Usuario {
 
     public Mozo() {
     }
+
+
 }
