@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 
+
 public class Cajero extends Usuario{
     //Atributos
     private int numeroCaja;
@@ -21,7 +22,9 @@ public class Cajero extends Usuario{
     public Cajero(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario, int numeroCaja) {
             super(tipoUsuario, numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaIngreso, inicioSesion, correoElectronico, telefono, salario);
             this.numeroCaja = numeroCaja;
+
     }
+
 
 
 
@@ -31,6 +34,7 @@ public class Cajero extends Usuario{
             CobrarCuentaPasos cobrarCuentaPasos = new CobrarCuentaPasos();
             cobrarCuentaPasos.pedirMesa();
         }*/
+
 
 
         public void editarCuenta() {

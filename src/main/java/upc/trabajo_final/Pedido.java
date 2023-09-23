@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Pedido {
+
     //Atributos
     private String codigoPedido;
     private double montoTotal;
@@ -39,6 +40,7 @@ public class Pedido {
     public void setCodigoPedido(String codigoPedido) {
         this.codigoPedido = codigoPedido;
     }
+
 
     public double getMontoTotal() {
         return montoTotal;
