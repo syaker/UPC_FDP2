@@ -9,6 +9,8 @@ public class Usuario implements IUsuario {
             {"mozo","5675675", "Carola", "Quintanilla", "Rodriguez", "20", "04/06/2023", "si", "caroquinta@gmail.com", "96977798", "2000", "0"},
     };
 
+
+    //Atributos
     private String tipoUsuario;
     private String numeroDocumento;
     private String nombre;
@@ -22,6 +24,8 @@ public class Usuario implements IUsuario {
     private double salario;
     private boolean anulado;
 
+
+    //Constructor
     public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         this.tipoUsuario = tipoUsuario;
         this.numeroDocumento = numeroDocumento;
@@ -37,23 +41,21 @@ public class Usuario implements IUsuario {
         this.anulado = false;
     }
 
-    public boolean isAnulado() {
 
+    //Getter y Setter
+    public boolean isAnulado() {
         return anulado;
     }
 
     public void setAnulado(boolean anulado) {
-
         this.anulado = anulado;
     }
 
     public String getCorreoElectronico() {
-
         return correoElectronico;
     }
 
     public void setCorreoElectronico(String correoElectronico) {
-
         this.correoElectronico = correoElectronico;
     }
 

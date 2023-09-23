@@ -6,71 +6,68 @@ import java.util.Date;
 public class Producto {
 
     //Atributos
+    private String codigo;
     private String nombre;
+    private String descripcion;
+    private SeccionCarta seccionCarta; //Instancia de categoría
     private double precio;
     private Date fechaCreacion;
-    private String descripcion;
-    private String codigo;
+
+
 
 
     //Constructor
-    public Producto(String nombre, double precio, Date fechaCreacion, String descripcion, String codigo) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.fechaCreacion = fechaCreacion;
-        this.descripcion = descripcion;
+    public Producto(String codigo, String nombre, String descripcion, SeccionCarta seccionCarta, double precio, Date fechaCreacion) {
         this.codigo = codigo;
-    }
-
-    //Getter & Setter
-    public String getNombre() {
-
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-
         this.nombre = nombre;
-    }
-
-    public String getPrecio() {
-
-        return  "S/." + String.format("%.2f",precio);//2 decimales
-    }
-
-    public void setPrecio(double precio) {
-
+        this.descripcion = descripcion;
+        this.seccionCarta = seccionCarta;
         this.precio = precio;
-    }
-
-    public Date getFechaCreacion() {
-
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(Date fechaCreacion) {
-
         this.fechaCreacion = fechaCreacion;
     }
 
-    public String getDescripcion() {
-
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-
-        this.descripcion = descripcion;
-    }
-
-    public String getCoodigo() {
-
+    //Getter
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCoodigo(String coodigo) {
-
-        this.codigo = coodigo;
+    public String getNombre() {
+        return nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public SeccionCarta getSeccionCarta() {
+        return seccionCarta;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+
+    //Métodos
+
+
+
+    //Sobrescribir para retornar datos
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "codigo='" + codigo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", seccionCarta=" + seccionCarta +
+                ", precio=" + precio +
+                ", fechaCreacion=" + fechaCreacion +
+                '}';
+    }
 }
+
+
