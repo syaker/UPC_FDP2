@@ -20,12 +20,9 @@ public class Cajero extends Usuario {
 
     }
 
-
-
-
-
-
-        /*public static class CobrarCuenta {
+    public Cajero() {
+    }
+/*public static class CobrarCuenta {
             CobrarCuentaPasos cobrarCuentaPasos = new CobrarCuentaPasos();
             cobrarCuentaPasos.pedirMesa();
         }*/
