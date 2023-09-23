@@ -21,16 +21,22 @@ public class InterfazSistema {
 
     public void iniciarSistema() {
         Scanner sc = new Scanner(System.in);
-        do {
-            this.mostrarMenu(this.menuActual);
-            this.opcionSeleccionada = sc.nextInt();
-            Menu menuEncontrado = this.menuActual.encontrarMenuPorId(this.opcionSeleccionada);
-            if (menuEncontrado == null) {
-                this.menuActual.encontrarYEjecutarAccionPorId(this.opcionSeleccionada);
-            } else {
-                this.menuActual = menuEncontrado;
-            }
-        } while (this.opcionSeleccionada != -1);
+        String contrasena;
+        System.out.print("Ingrese su contraseña (DNI): ");
+        contrasena = sc.nextLine();
+
+        if (contrasena.length() > 0) {
+            do {
+                this.mostrarMenu(this.menuActual);
+                this.opcionSeleccionada = sc.nextInt();
+                Menu menuEncontrado = this.menuActual.encontrarMenuPorId(this.opcionSeleccionada);
+                if (menuEncontrado == null) {
+                    this.menuActual.encontrarYEjecutarAccionPorId(this.opcionSeleccionada);
+                } else {
+                    this.menuActual = menuEncontrado;
+                }
+            } while (this.opcionSeleccionada != -1);
+        }
     }
 
     public void mostrarMenu(Menu menu) {

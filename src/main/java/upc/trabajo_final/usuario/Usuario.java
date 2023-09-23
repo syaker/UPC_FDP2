@@ -3,13 +3,6 @@ package upc.trabajo_final.usuario;
 import upc.trabajo_final.interfaz_sistema.IAccionMenu;
 
 public class Usuario implements IUsuario, IAccionMenu {
-    String[][] usuarios = {
-            {"mozo","9882985", "Ana", "Perez", "Rodriguez", "20", "04/09/2023", "si", "anaperez@gmail.com", "999324235", "2000", "0"},
-            {"administrador","3298798", "Juan", "Martinat", "Chavez", "20", "19/11/2022", "si", "jmarti@gmail.com", "999767675", "2000", "0"},
-            {"cajero","3634643", "Nelly", "Tapia", "Ballena", "20", "28/02/2023", "si", "nellytb@gmail.com", "934534534", "1300", "0"},
-            {"mozo","3563456", "Gonzalo", "Lastra", "Fernandez", "20", "23/05/2023", "si", "gonza9899@gmail.com", "999435334", "5000", "0"},
-            {"mozo","5675675", "Carola", "Quintanilla", "Rodriguez", "20", "04/06/2023", "si", "caroquinta@gmail.com", "96977798", "2000", "0"},
-    };
 
     private String tipoUsuario;
     private String numeroDocumento;
@@ -23,8 +16,6 @@ public class Usuario implements IUsuario, IAccionMenu {
     private int telefono;
     private double salario;
     private boolean anulado;
-
-    public Usuario() {}
 
     public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         this.tipoUsuario = tipoUsuario;

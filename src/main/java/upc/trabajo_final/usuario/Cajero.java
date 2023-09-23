@@ -59,9 +59,6 @@ public class Cajero extends Usuario {
         // ARREGLAR ESTA PARTE DEL CODIGO Y MOVERLO QUIZA A USUARIO
         /*@Override
         public void consultarMontoVentaTotal() {
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Ingrese su contraseña (DNI): ");
-            String contraseña = scanner.nextLine();
             // Crear la dniLista para almacenar los DNI
             List<String> dniLista = new ArrayList<>();
             //Agregando la lista de Cajeros:
