@@ -1,7 +1,5 @@
 package upc.trabajo_final.menu;
 
-import upc.trabajo_final.menu.Menu;
-
 import java.util.ArrayList;
 import java.util.List;
 

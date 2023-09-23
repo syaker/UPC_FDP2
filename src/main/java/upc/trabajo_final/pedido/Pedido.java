@@ -1,13 +1,8 @@
 package upc.trabajo_final.pedido;
 
+import java.util.ArrayList;
+
 public class Pedido {
-    String[][] pedidos = {
-            {"000001","1", "100.5", "12/09/2023", "09:13", "9882985", "04/09/2023", "true", "0"},
-            {"000002","1", "13.0", "12/09/2023", "13:13", "9882985", "19/11/2022", "true", "0"},
-            {"000003","1", "123.8", "12/09/2023", "17:13", "9882985", "28/02/2023", "true", "0"},
-            {"000004","1", "55.90", "12/09/2023", "06:13", "9882985", "23/05/2023", "true", "0"},
-            {"000005","1", "27.30", "12/09/2023", "21:13", "9882985", "04/06/2023", "true", "0"},
-    };
 
     private String codigoPedido;
     private String[] idsProductoRelacionado;
@@ -28,6 +23,7 @@ public class Pedido {
         this.cobrado = cobrado;
         this.anulado = anulado;
     }
+
 
     public String getCodigoPedido() {
         return codigoPedido;

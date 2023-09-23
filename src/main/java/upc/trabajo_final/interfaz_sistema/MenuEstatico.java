@@ -24,7 +24,7 @@ public class MenuEstatico {
         elementosMenuMozo.add(new ElementoMenu(4, "Consultar pedido", null, new Mozo()));
         elementosMenuMozo.add(new ElementoMenu(5, "Salir", null, new Mozo()));
 
-        this.menuMozo = new Menu(elementosMenuMozo);
+        this.menuMozo = new Menu(elementosMenuMozo, "Escoge una opcion");
 
         // Administrador
         ArrayList<ElementoMenu> elementosMenuAdministrador = new ArrayList<ElementoMenu>();
@@ -39,7 +39,7 @@ public class MenuEstatico {
         elementosMenuAdministrador.add(new ElementoMenu(9, "Eliminar usuario", null, new Administrador()));
         elementosMenuAdministrador.add(new ElementoMenu(10, "Salir", null, new Administrador()));
 
-        this.menuAdministrador = new Menu(elementosMenuAdministrador);
+        this.menuAdministrador = new Menu(elementosMenuAdministrador, "Escoge una opcion");
 
         // Cajero
         ArrayList<ElementoMenu> elementosMenuCajero = new ArrayList<ElementoMenu>();
@@ -51,7 +51,7 @@ public class MenuEstatico {
         elementosMenuCajero.add(new ElementoMenu(6, "Crear clientes", null, new Cajero()));
         elementosMenuCajero.add(new ElementoMenu(7, "Salir", null, new Cajero()));
 
-        this.menuCajero = new Menu(elementosMenuCajero);
+        this.menuCajero = new Menu(elementosMenuCajero, "Escoge una opcion");
 
 
         // Menu de tipo de usuario
@@ -60,14 +60,14 @@ public class MenuEstatico {
         elementosMenuTipoUsuario.add(new ElementoMenu(2, "Administrador", this.menuAdministrador, null));
         elementosMenuTipoUsuario.add(new ElementoMenu(3, "Cajero", this.menuCajero, null));
 
-        this.menuTipoDeUsuario = new Menu(elementosMenuTipoUsuario);
+        this.menuTipoDeUsuario = new Menu(elementosMenuTipoUsuario, "Escoge un tipo de usuario");
 
         // Menu de idiomas
         ArrayList<ElementoMenu> elementosMenuIdioma = new ArrayList<ElementoMenu>();
         elementosMenuIdioma.add(new ElementoMenu(1, "Espanol", this.menuTipoDeUsuario, null));
         elementosMenuIdioma.add(new ElementoMenu(2, "Ingles", this.menuTipoDeUsuario, null));
 
-        this.menuIdioma = new Menu(elementosMenuIdioma);
+        this.menuIdioma = new Menu(elementosMenuIdioma, "Escoge un idioma");
     }
 
     public Menu getMenuMozo() {

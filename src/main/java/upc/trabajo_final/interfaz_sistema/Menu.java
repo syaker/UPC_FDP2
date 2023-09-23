@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 public class Menu {
     private ArrayList<ElementoMenu> elementos;
+    private String cabecera;
 
-    public Menu (ArrayList<ElementoMenu> elementos) {
+    public Menu (ArrayList<ElementoMenu> elementos, String cabecera) {
         this.elementos = elementos;
+        this.cabecera = cabecera;
     }
 
     public void imprimirMenu() {
+        System.out.println("-------------------------------\n" + this.cabecera + "\n" + "-------------------------------\n");
         for (int i=0; i < elementos.size(); i++) {
             ElementoMenu menu = elementos.get(i);
             System.out.println(menu.getIdElementoMenu() + ". " + menu.getTextoElementoMenu() + "");
@@ -38,4 +41,5 @@ public class Menu {
             }
         }
     }
+
 }
