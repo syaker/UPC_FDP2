@@ -4,36 +4,14 @@ import upc.trabajo_final.usuario.Usuario;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InterfazSistema implements IInterfazSistema {
+public class InterfazSistema {
     private int opcionSeleccionada = 0;
     private MenuSistema menuActual = null;
     private MenuSistema menuIdioma;
 
     public InterfazSistema() {
         // Creando todos los menues con los submenues asociados
-
-        // 1. Menu por cada tipo de usuario
-
-
-
-
-        // 2. Menu tipo de usuario
-
-            ArrayList<ElementoMenu> elementosMenuTipoUsuario = new ArrayList<ElementoMenu>();
-            elementosMenuTipoUsuario.add(new ElementoMenu(1, "Mozo", null, new Usuario()));
-            elementosMenuTipoUsuario.add(new ElementoMenu(2, "Administrador", null, new Usuario()));
-            elementosMenuTipoUsuario.add(new ElementoMenu(3, "Cajero", null, new Usuario()));
-
-            MenuSistema menuTipoUsuario = new MenuSistema(elementosMenuTipoUsuario);
-
-        // 3. Menu idioma
-
-            // Creando el menu idioma y asignandole el menu sistema tipo de usuario
-            ArrayList<ElementoMenu> elementosMenuIdioma = new ArrayList<ElementoMenu>();
-            elementosMenuIdioma.add(new ElementoMenu(1, "Espanol", menuTipoUsuario, new Usuario()));
-            elementosMenuIdioma.add(new ElementoMenu(2, "Ingles", menuTipoUsuario, new Usuario()));
-
-            this.menuIdioma = new MenuSistema(elementosMenuIdioma);
+            this.menuIdioma = new MenuEstatico().getMenuIdioma();
     }
 
     public static void main(String[] args) {
@@ -60,10 +38,5 @@ public class InterfazSistema implements IInterfazSistema {
             this.menuActual = menuIdioma;
         }
         menuActual.imprimirMenu();
-    }
-
-    @Override
-    public boolean ingresarAlSistema() {
-        return true;
     }
 }

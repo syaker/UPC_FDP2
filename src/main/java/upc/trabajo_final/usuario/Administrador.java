@@ -6,6 +6,9 @@ public class Administrador extends Usuario implements IAdministrador {
         super(tipoUsuario, numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaIngreso, inicioSesion, correoElectronico, telefono, salario);
     }
 
+    public Administrador() {
+    }
+
     @Override
     public boolean crearAdministrador() {
 
