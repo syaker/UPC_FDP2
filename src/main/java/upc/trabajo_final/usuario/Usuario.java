@@ -1,6 +1,8 @@
 package upc.trabajo_final.usuario;
 
 import upc.trabajo_final.interfaz_sistema.IAccionMenu;
+import upc.trabajo_final.menu.MenuManager;
+import upc.trabajo_final.menu.CategoriaCarta;
 
 public class Usuario implements IUsuario, IAccionMenu {
 
@@ -40,6 +42,69 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.nombre = nombre;
     }
 
+    public String getPrimerApellido() {
+        return primerApellido;
+    }
+
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
+    }
+
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+
+    public String getEdad() {
+        return edad;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public String getFechaIngreso() {
+        return fechaIngreso;
+    }
+
+    public void setFechaIngreso(String fechaIngreso) {
+        this.fechaIngreso = fechaIngreso;
+    }
+
+    public String getInicioSesion() {
+        return inicioSesion;
+    }
+
+    public void setInicioSesion(String inicioSesion) {
+        this.inicioSesion = inicioSesion;
+    }
+
+    @Override
+    public void consultarMenuBebidas() {
+        MenuManager menuManager = new MenuManager();
+        System.out.println("Menú de Bebidas:");
+        CategoriaCarta categoriaBebidas = menuManager.getMenuCarta().getCategoriaPorNombre("Bebidas");
+        if (categoriaBebidas != null) {
+            categoriaBebidas.mostrarCarta();
+        } else {
+            System.out.println("Categoría de Bebidas no encontrada.");
+        }
+    }
+    @Override
+    public void consultarMenuComidas() {
+        MenuManager menuManager = new MenuManager();
+        System.out.println("Menú de Comidas:");
+        CategoriaCarta categoriaComidas = menuManager.getMenuCarta().getCategoriaPorNombre("Comidas");
+        if (categoriaComidas != null) {
+            categoriaComidas.mostrarCarta();
+        } else {
+            System.out.println("Categoría de Comidas no encontrada.");
+        }
+    }
+
     @Override
     public boolean salirSistema() {
         return true;
@@ -61,6 +126,14 @@ public class Usuario implements IUsuario, IAccionMenu {
         switch (accionId) {
             case 1:
                 this.crearPedido();
+                break;
+            case 2:
+                this.consultarMenuBebidas();
+                System.out.println();
+                break;
+            case 3:
+                this.consultarMenuComidas();
+                System.out.println();
                 break;
         }
     }
