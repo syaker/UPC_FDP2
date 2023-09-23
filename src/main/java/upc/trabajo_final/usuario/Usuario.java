@@ -1,6 +1,8 @@
 package upc.trabajo_final.usuario;
 
 import upc.trabajo_final.interfaz_sistema.IAccionMenu;
+import upc.trabajo_final.menu.MenuManager;
+import upc.trabajo_final.menu.CategoriaCarta;
 
 public class Usuario implements IUsuario, IAccionMenu {
     String[][] usuarios = {
@@ -140,6 +142,29 @@ public class Usuario implements IUsuario, IAccionMenu {
     public void setInicioSesion(String inicioSesion) {
         this.inicioSesion = inicioSesion;
     }
+
+    @Override
+    public void consultarMenuBebidas() {
+        MenuManager menuManager = new MenuManager();
+        System.out.println("Menú de Bebidas:");
+        CategoriaCarta categoriaBebidas = menuManager.getMenuCarta().getCategoriaPorNombre("Bebidas");
+        if (categoriaBebidas != null) {
+            categoriaBebidas.mostrarCarta();
+        } else {
+            System.out.println("Categoría de Bebidas no encontrada.");
+        }
+    }
+    @Override
+    public void consultarMenuComidas() {
+        MenuManager menuManager = new MenuManager();
+        System.out.println("Menú de Comidas:");
+        CategoriaCarta categoriaComidas = menuManager.getMenuCarta().getCategoriaPorNombre("Comidas");
+        if (categoriaComidas != null) {
+            categoriaComidas.mostrarCarta();
+        } else {
+            System.out.println("Categoría de Comidas no encontrada.");
+        }
+    }
     @Override
     public boolean salirSistema() {
         return true;
@@ -161,6 +186,14 @@ public class Usuario implements IUsuario, IAccionMenu {
         switch (accionId) {
             case 1:
                 this.crearPedido();
+                break;
+            case 2:
+                this.consultarMenuBebidas();
+                System.out.println();
+                break;
+            case 3:
+                this.consultarMenuComidas();
+                System.out.println();
                 break;
         }
     }
