@@ -2,10 +2,10 @@ package upc.trabajo_final.interfaz_sistema;
 
 import java.util.ArrayList;
 
-public class MenuSistema {
+public class Menu {
     private ArrayList<ElementoMenu> elementos;
 
-    public MenuSistema(ArrayList<ElementoMenu> elementos) {
+    public Menu (ArrayList<ElementoMenu> elementos) {
         this.elementos = elementos;
     }
 
@@ -16,8 +16,8 @@ public class MenuSistema {
         }
     }
 
-    public MenuSistema encontrarMenuPorId (int idABuscar) {
-        MenuSistema menuEncontrado = null;
+    public Menu encontrarMenuPorId (int idABuscar) {
+        Menu menuEncontrado = null;
         for (int i=0; i < this.elementos.size(); i++) {
             ElementoMenu elementoMenu = this.elementos.get(i);
 

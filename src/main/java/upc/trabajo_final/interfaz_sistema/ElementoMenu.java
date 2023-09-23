@@ -3,17 +3,17 @@ package upc.trabajo_final.interfaz_sistema;
 public class ElementoMenu {
     private int idElementoMenu;
     private String textoElementoMenu;
-    private MenuSistema submenu;
+    private Menu submenu;
     private IAccionMenu accion;
 
-    public ElementoMenu(int idElementoMenu, String textoElementoMenu, MenuSistema submenu,IAccionMenu accion) {
+    public ElementoMenu(int idElementoMenu, String textoElementoMenu, Menu submenu,IAccionMenu accion) {
         this.idElementoMenu = idElementoMenu;
         this.textoElementoMenu = textoElementoMenu;
         this.submenu = submenu;
         this.accion = accion;
     }
 
-    public MenuSistema getSubmenu() {
+    public Menu getSubmenu() {
         return submenu;
     }
 

@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class MenuEstatico {
 
-    MenuSistema menuMozo;
-    MenuSistema menuAdministrador;
-    MenuSistema menuCajero;
-    MenuSistema menuTipoDeUsuario;
-    MenuSistema menuIdioma;
+    Menu menuMozo;
+    Menu menuAdministrador;
+    Menu menuCajero;
+    Menu menuTipoDeUsuario;
+    Menu menuIdioma;
 
 
     public MenuEstatico() {
@@ -24,7 +24,7 @@ public class MenuEstatico {
         elementosMenuMozo.add(new ElementoMenu(4, "Consultar pedido", null, new Mozo()));
         elementosMenuMozo.add(new ElementoMenu(5, "Salir", null, new Mozo()));
 
-        this.menuMozo = new MenuSistema(elementosMenuMozo);
+        this.menuMozo = new Menu(elementosMenuMozo);
 
         // Administrador
         ArrayList<ElementoMenu> elementosMenuAdministrador = new ArrayList<ElementoMenu>();
@@ -39,7 +39,7 @@ public class MenuEstatico {
         elementosMenuAdministrador.add(new ElementoMenu(9, "Eliminar usuario", null, new Administrador()));
         elementosMenuAdministrador.add(new ElementoMenu(10, "Salir", null, new Administrador()));
 
-        this.menuAdministrador = new MenuSistema(elementosMenuAdministrador);
+        this.menuAdministrador = new Menu(elementosMenuAdministrador);
 
         // Cajero
         ArrayList<ElementoMenu> elementosMenuCajero = new ArrayList<ElementoMenu>();
@@ -51,7 +51,7 @@ public class MenuEstatico {
         elementosMenuCajero.add(new ElementoMenu(6, "Crear clientes", null, new Cajero()));
         elementosMenuCajero.add(new ElementoMenu(7, "Salir", null, new Cajero()));
 
-        this.menuCajero = new MenuSistema(elementosMenuCajero);
+        this.menuCajero = new Menu(elementosMenuCajero);
 
 
         // Menu de tipo de usuario
@@ -60,33 +60,33 @@ public class MenuEstatico {
         elementosMenuTipoUsuario.add(new ElementoMenu(2, "Administrador", this.menuAdministrador, null));
         elementosMenuTipoUsuario.add(new ElementoMenu(3, "Cajero", this.menuCajero, null));
 
-        this.menuTipoDeUsuario = new MenuSistema(elementosMenuTipoUsuario);
+        this.menuTipoDeUsuario = new Menu(elementosMenuTipoUsuario);
 
         // Menu de idiomas
         ArrayList<ElementoMenu> elementosMenuIdioma = new ArrayList<ElementoMenu>();
         elementosMenuIdioma.add(new ElementoMenu(1, "Espanol", this.menuTipoDeUsuario, null));
         elementosMenuIdioma.add(new ElementoMenu(2, "Ingles", this.menuTipoDeUsuario, null));
 
-        this.menuIdioma = new MenuSistema(elementosMenuIdioma);
+        this.menuIdioma = new Menu(elementosMenuIdioma);
     }
 
-    public MenuSistema getMenuMozo() {
+    public Menu getMenuMozo() {
         return menuMozo;
     }
 
-    public MenuSistema getMenuAdministrador() {
+    public Menu getMenuAdministrador() {
         return menuAdministrador;
     }
 
-    public MenuSistema getMenuCajero() {
+    public Menu getMenuCajero() {
         return menuCajero;
     }
 
-    public MenuSistema getMenuTipoDeUsuario() {
+    public Menu getMenuTipoDeUsuario() {
         return menuTipoDeUsuario;
     }
 
-    public MenuSistema getMenuIdioma() {
+    public Menu getMenuIdioma() {
         return menuIdioma;
     }
 }

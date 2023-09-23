@@ -41,58 +41,6 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.anulado = false;
     }
 
-    public boolean isAnulado() {
-
-        return anulado;
-    }
-
-    public void setAnulado(boolean anulado) {
-
-        this.anulado = anulado;
-    }
-
-    public String getCorreoElectronico() {
-
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-
-        this.correoElectronico = correoElectronico;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -101,45 +49,6 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.nombre = nombre;
     }
 
-    public String getPrimerApellido() {
-        return primerApellido;
-    }
-
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-
-    public String getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
-    public String getInicioSesion() {
-        return inicioSesion;
-    }
-
-    public void setInicioSesion(String inicioSesion) {
-        this.inicioSesion = inicioSesion;
-    }
     @Override
     public boolean salirSistema() {
         return true;

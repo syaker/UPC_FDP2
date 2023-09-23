@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class InterfazSistema {
     private int opcionSeleccionada = 0;
-    private MenuSistema menuActual = null;
-    private MenuSistema menuIdioma;
+    private Menu menuActual = null;
+    private Menu menuIdioma;
 
     public InterfazSistema() {
         // Creando todos los menues con los submenues asociados
@@ -24,7 +24,7 @@ public class InterfazSistema {
         do {
             this.mostrarMenu(this.menuActual);
             this.opcionSeleccionada = sc.nextInt();
-            MenuSistema menuEncontrado = this.menuActual.encontrarMenuPorId(this.opcionSeleccionada);
+            Menu menuEncontrado = this.menuActual.encontrarMenuPorId(this.opcionSeleccionada);
             if (menuEncontrado == null) {
                 this.menuActual.encontrarYEjecutarAccionPorId(this.opcionSeleccionada);
             } else {
@@ -33,7 +33,7 @@ public class InterfazSistema {
         } while (this.opcionSeleccionada != -1);
     }
 
-    public void mostrarMenu(MenuSistema menu) {
+    public void mostrarMenu(Menu menu) {
         if (menu == null) {
             this.menuActual = menuIdioma;
         }
