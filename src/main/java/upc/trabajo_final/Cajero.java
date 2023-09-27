@@ -1,3 +1,4 @@
+
 package upc.trabajo_final;
 
 
@@ -8,39 +9,67 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 
-public class Cajero extends Usuario implements ICajero {
+
+public class Cajero extends Usuario{
+    //Atributos
+    private int numeroCaja;
 
 
-    public Cajero(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
-        super(tipoUsuario, numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaIngreso, inicioSesion, correoElectronico, telefono, salario);
+    public int getNumeroCaja() {
+        return numeroCaja;
     }
 
-    @Override
-    public void cobrarCuenta() {
-        // Aqui hacemos validaciones segun el tipo de usuario
-        //1. Pedir nombre de la mesa/cliente y mostrar pedido.
+    public Cajero(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario, int numeroCaja) {
+            super(tipoUsuario, numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaIngreso, inicioSesion, correoElectronico, telefono, salario);
+            this.numeroCaja = numeroCaja;
 
-
-        //2. Preguntar que metodo de pago quiere usar. [Hay efectivo, tarjeta, Yape y Plin]
-
-        public void elegirMetodo() {
-            //Atributos
-            static class metodoPago(){
-                System.out.println("¿Qué método de pago desea usar?");
-                Scanner sc = new Scanner(System.in);
-                String metodoPago = sc.nextLine();
-
-            }
+    }
 
 
 
+
+
+
+        /*public static class CobrarCuenta {
+            CobrarCuentaPasos cobrarCuentaPasos = new CobrarCuentaPasos();
+            cobrarCuentaPasos.pedirMesa();
+        }*/
+
+
+
+        public void editarCuenta() {
+
+            // Aqui hacemos validaciones segun el tipo de usuario
 
         }
 
-        //3. Efectivo - Preguntar con cuanto paga y regresar el vuelto
-        //4. Preguntar si el pago fué realizado con éxito
-        //5. Pago exitoso pulsa "s" para salir.
-    }
+
+        public void crearCliente() {
+
+        }
+
+
+        public void listarCliente() {
+
+        }
+
+
+        public void listarClientes() {
+
+        }
+
+
+        public void cambiarEstadoDelPedido() {
+
+        }
+
+
+
+
+
+
+
+
 
     @Override
     public void editarCuenta() {
@@ -125,16 +154,17 @@ public class Cajero extends Usuario implements ICajero {
                         e.printStackTrace();
                         return 0; // Manejo de error
                     }
-                }
-            });
+                };
 
-            // Imprimir los montos totales agrupados por fecha en orden cronológico
-            for (Map.Entry<String, Double> entry : listaMontosPorFecha) {
-                System.out.println("Fecha: " + entry.getKey() + ", Monto Total: " + entry.getValue());
+                // Imprimir los montos totales agrupados por fecha en orden cronológico
+            for(Map.Entry<String, Double> entry : listaMontosPorFecha) {
+                    System.out.println("Fecha: " + entry.getKey() + ", Monto Total: " + entry.getValue());
+                }
+            } else {
+                System.out.println("Contraseña incorrecta. No tiene acceso.");
             }
-        } else {
-            System.out.println("Contraseña incorrecta. No tiene acceso.");
         }
+
     }
 }
 

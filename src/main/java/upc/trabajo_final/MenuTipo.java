@@ -1,6 +1,6 @@
 package upc.trabajo_final;
 
-import java.util.ArrayList;
+import java.awt.*;
 import java.util.List;
 
 public class MenuTipo {
@@ -8,7 +8,7 @@ public class MenuTipo {
     private String nombreCarta;
 
     private String horario;
-    private List<Comida> platos;
+    private List<Producto> platos;
 
 
 
@@ -16,7 +16,7 @@ public class MenuTipo {
 
     //Constructor
     //Carta sección comida
-    public MenuTipo(String nombreCarta, String horario, List<Comida> platos) {
+    public MenuTipo(String nombreCarta, String horario, List<Producto> platos) {
         this.nombreCarta = nombreCarta;
         this.horario = horario;
         this.platos = platos;
@@ -47,12 +47,12 @@ public class MenuTipo {
         this.horario = horario;
     }
 
-    public List<Comida> getPlatos() {
+    public List<Producto> getPlatos() {
 
         return platos;
     }
 
-    public void setPlatos(List<Comida> platos) {
+    public void setPlatos(List<Producto> platos) {
 
         this.platos = platos;
     }

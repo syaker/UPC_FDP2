@@ -1,5 +1,6 @@
 package upc.trabajo_final;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Administrador extends Usuario implements IAdministrador {
@@ -167,5 +168,39 @@ public class Administrador extends Usuario implements IAdministrador {
             posicion++;
         }
     }
+    public void consultarListaGeneralPedidos() {
+        // Obtener la lista de pedidos
+        List<Pedido> listaPedidos = Main.getListPedidos();
 
+        // Obtener la fecha actual
+        Date fechaActual = new Date();
+
+        // Formatear la fecha actual en el formato "yyyy-MM-dd"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String fechaActualStr = dateFormat.format(fechaActual);
+
+        // Verificar si la lista de pedidos está vacía
+        if (listaPedidos.isEmpty()) {
+            System.out.println("No hay pedidos registrados.");
+        } else {
+            System.out.println("Pedidos del día " + fechaActualStr + ":");
+
+            for (Pedido pedido : listaPedidos) {
+                // Verificaciom si la fecha del pedido coincide con la fecha actual
+                if (pedido.getFechaPedido().equals(fechaActualStr)) {
+                    System.out.println("---------------------------------------------");
+                    System.out.println("IDs de Comidas Relacionadas: " + String.join(", ", pedido.getIdsComidasRelacionadas()));
+                    System.out.println("IDs de Bebidas Relacionadas: " + String.join(", ", pedido.getIdsBebidasRelacionadas()));
+                    System.out.println("Monto Total: " + pedido.getMontoTotal());
+                    System.out.println("Fecha de Pedido: " + pedido.getFechaPedido());
+                    System.out.println("Hora de Pedido: " + pedido.getHoraPedido());
+                    System.out.println("Código de Pedido: " + pedido.getCodigoPedido());
+                    System.out.println("Código de Cliente: " + pedido.getCodigoCliente());
+                    System.out.println("Cobrado: " + pedido.isCobrado());
+                    System.out.println("Anulado: " + pedido.isAnulado());
+                    System.out.println("---------------------------------------------");
+                }
+            }
+        }
+    }
 }
