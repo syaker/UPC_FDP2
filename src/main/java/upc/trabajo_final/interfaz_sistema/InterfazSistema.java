@@ -1,4 +1,5 @@
 package upc.trabajo_final.interfaz_sistema;
+import upc.trabajo_final.usuario.Administrador;
 import upc.trabajo_final.usuario.Usuario;
 
 import java.util.ArrayList;
@@ -15,8 +16,10 @@ public class InterfazSistema {
     }
 
     public static void main(String[] args) {
-        InterfazSistema in = new InterfazSistema();
-        in.iniciarSistema();
+
+
+      InterfazSistema in = new InterfazSistema();
+       in.iniciarSistema();
     }
 
     public void iniciarSistema() {

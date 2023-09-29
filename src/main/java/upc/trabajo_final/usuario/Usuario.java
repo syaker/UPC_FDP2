@@ -34,6 +34,10 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.anulado = false;
     }
 
+    public Usuario() {
+        
+    }
+
     public String getNombre() {
         return nombre;
     }

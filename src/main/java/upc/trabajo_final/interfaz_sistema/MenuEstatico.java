@@ -37,7 +37,11 @@ public class MenuEstatico {
         elementosMenuAdministrador.add(new ElementoMenu(7, "Eliminar productos del menu", null, new Administrador()));
         elementosMenuAdministrador.add(new ElementoMenu(8, "Crear usuario", null, new Administrador()));
         elementosMenuAdministrador.add(new ElementoMenu(9, "Eliminar usuario", null, new Administrador()));
-        elementosMenuAdministrador.add(new ElementoMenu(10, "Salir", null, new Administrador()));
+        elementosMenuAdministrador.add(new ElementoMenu(10, "Crear administrador", null, new Administrador()));
+        elementosMenuAdministrador.add(new ElementoMenu(11, "Crear cliente", null, new Administrador()));
+        elementosMenuAdministrador.add(new ElementoMenu(12, "Consultar lista de clientes creados (A-Z)", null, new Administrador()));
+        elementosMenuAdministrador.add(new ElementoMenu(13, "Consultar lista de clientes totales", null, new Administrador()));
+        elementosMenuAdministrador.add(new ElementoMenu(14, "Salir", null, new Administrador()));
 
         this.menuAdministrador = new Menu(elementosMenuAdministrador, "Escoge una opcion");
 
