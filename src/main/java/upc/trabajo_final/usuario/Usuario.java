@@ -35,7 +35,7 @@ public class Usuario implements IUsuario, IAccionMenu {
     }
 
     public Usuario() {
-        
+
     }
 
     public String getNombre() {
