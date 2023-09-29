@@ -86,6 +86,17 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.inicioSesion = inicioSesion;
     }
 
+    public String getTipoUsuario() { return tipoUsuario; }
+
+    public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
+
+    public String getNumeroDocumento() { return numeroDocumento; }
+
+    public void setNumeroDocumento(String numeroDocumento) { this.numeroDocumento = numeroDocumento;}
+
+
+
+
     @Override
     public void consultarMenuBebidas() {
         MenuManager menuManager = new MenuManager();

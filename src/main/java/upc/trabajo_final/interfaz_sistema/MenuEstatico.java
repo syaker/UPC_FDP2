@@ -30,31 +30,36 @@ public class MenuEstatico {
         // Administrador
         Administrador administradorInstancia = new Administrador();
         ArrayList<ElementoMenu> elementosMenuAdministrador = new ArrayList<ElementoMenu>();
-        elementosMenuAdministrador.add(new ElementoMenu(1, "Consultar total de pedidos", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(2, "Consultar total de ventas por dia", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(3, "Consultar ranking dee clientes frecuentes", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(4, "Consultar lista general de pedidos", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(5, "Editar pedidos", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(6, "Agregar productos al menu", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(7, "Eliminar productos del menu", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(8, "Crear usuario", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(9, "Eliminar usuario", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(10, "Crear administrador", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(1, "Crear administrador", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(2, "-----", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(3, "-----", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(4, "Eliminar pedido", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(5, "Eliminar usuario", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(6, "Eliminar cliente", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(7, "Agregar una opcion de comida", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(8, "Editar la opcion de comida", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(9, "Eliminar la opcion de comida", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(10, "Agregar bebida", null, administradorInstancia));
         elementosMenuAdministrador.add(new ElementoMenu(11, "Crear cliente", null, administradorInstancia));
         elementosMenuAdministrador.add(new ElementoMenu(12, "Consultar lista de clientes totales", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(13, "Salir", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(13, "Editar opcion de bebida", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(14, "Eliminar opcion de bebida", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(15, "Cambiar estado de pedido", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(16, "Consultar lista general de pedidos", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(17, "Consultar ranking de clientes fecuentes", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(18, "Salir", null, administradorInstancia));
 
         this.menuAdministrador = new Menu(elementosMenuAdministrador, "Escoge una opcion");
 
         // Cajero
         Cajero cajeroInstancia = new Cajero();
         ArrayList<ElementoMenu> elementosMenuCajero = new ArrayList<ElementoMenu>();
-        elementosMenuCajero.add(new ElementoMenu(1, "Registrar y cobrar pedido", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(2, "Cobrar pedido mesa", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(3, "Consultar carta de bebidas", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(4, "Consultar carta de comidas", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(5, "Consultar monto de venta total", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(6, "Crear clientes", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(1, "Cobrar cuenta", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(2, "Editar cuenta", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(3, "Crear cLiente", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(4, "Consultar lista de clientes totales", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(5, "Editar estado de pedido", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(6, "Consultar ventas del dia", null, cajeroInstancia));
         elementosMenuCajero.add(new ElementoMenu(7, "Salir", null, cajeroInstancia));
 
         this.menuCajero = new Menu(elementosMenuCajero, "Escoge una opcion");

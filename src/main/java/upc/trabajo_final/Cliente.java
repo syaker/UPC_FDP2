@@ -10,7 +10,9 @@ public class Cliente {
     private String correoElectronico;
     private String telefono;
 
-    public Cliente(String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaRegistro, String correoElectronico, String telefono) {
+    private String codigoCliente;
+
+    public Cliente(String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaRegistro, String correoElectronico, String telefono, String codigoCliente) {
         this.numeroDocumento = numeroDocumento;
         this.nombre = nombre;
         this.primerApellido = primerApellido;
@@ -19,6 +21,7 @@ public class Cliente {
         this.fechaRegistro = fechaRegistro;
         this.correoElectronico = correoElectronico;
         this.telefono = telefono;
+        this.codigoCliente = codigoCliente;
     }
 
     public String getNumeroDocumento() {
@@ -85,5 +88,11 @@ public class Cliente {
         this.telefono = telefono;
     }
 
+    public String getCodigoCliente() {
+        return codigoCliente;
+    }
 
+    public void setCodigoCliente(String codigoCliente) {
+        this.codigoCliente = codigoCliente;
+    }
 }
