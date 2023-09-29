@@ -9,11 +9,11 @@ public class Mozo extends Usuario implements IAccionMenu {
     }
 
     public Mozo() {
-        super();
+       // super();
     }
 
-    @Override
+    /*@Override
     public void ejecutarAccion(int accionId) {
 
-    }
+    }*/
 }
