@@ -1,15 +1,6 @@
 package upc.trabajo_final;
 
 public class Cliente {
- /*
-    String[][] clientes = {
-            {"9982319","Walter", "White", "60",  "04/09/2023", "ww@gmail.com", "999324235"},
-            {"9982319","Jesse", "Pinkman", "28", "19/11/2022", "jp@gmail.com", "999767675"},
-            {"9982319","Nelly", "Caceres", "39", "28/02/2023", "nc@gmail.com", "934534534"},
-            {"9982319","Alex", "Bunny", "40",  "23/05/2023", "ab@gmail.com", "999435334"},
-            {"9982319","Stephanie", "Sanchez", "60", "04/06/2023", "ss@gmail.com", "96977798"},
-    };
-*/
     private String numeroDocumento;
     private String nombre;
     private String primerApellido;
@@ -28,7 +19,6 @@ public class Cliente {
         this.fechaRegistro = fechaRegistro;
         this.correoElectronico = correoElectronico;
         this.telefono = telefono;
-
     }
 
     public String getNumeroDocumento() {

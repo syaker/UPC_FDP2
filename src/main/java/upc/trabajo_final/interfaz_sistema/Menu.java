@@ -38,6 +38,7 @@ public class Menu {
 
             if (opcion.getIdElementoMenu() == idABuscar) {
                 opcion.ejecutarAccion(idABuscar);
+                break;
             }
         }
     }

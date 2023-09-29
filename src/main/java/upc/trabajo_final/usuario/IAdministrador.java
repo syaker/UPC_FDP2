@@ -29,7 +29,5 @@ public interface IAdministrador extends IUsuario {
 
     void crearCliente();
 
-    void listarClientesCreados();
-
     void listarClientesTotales();
 }

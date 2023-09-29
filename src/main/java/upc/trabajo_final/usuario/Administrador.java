@@ -10,8 +10,6 @@ public class Administrador extends Usuario implements IAdministrador, IAccionMen
     private ClienteDB clienteDB;
     private Scanner scanner;
 
-    private List<Cliente> clientesCreadosPorCrearCliente;
-
 
     public Administrador(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         super(tipoUsuario, numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaIngreso, inicioSesion, correoElectronico, telefono, salario);
@@ -23,7 +21,6 @@ public class Administrador extends Usuario implements IAdministrador, IAccionMen
     public Administrador() {
         super();
         this.clienteDB = new ClienteDB();
-        this.clientesCreadosPorCrearCliente = new ArrayList<>();
     }
 
     @Override
@@ -151,36 +148,12 @@ public class Administrador extends Usuario implements IAdministrador, IAccionMen
         String telefono = scanner.nextLine();
 
 
-
         Cliente nuevoCliente = new Cliente(numeroDocumento, nombre, primerApellido, segundoApellido, edad, fechaRegistro, correoElectronico, telefono);
 
-
-        clientesCreadosPorCrearCliente.add(nuevoCliente);
 
         System.out.println("Cliente creado y agregado con éxito.");
 
 
-    }
-
-    @Override
-    public void listarClientesCreados() {
-      //  List<Cliente> clientes = clienteDB.getListaClientes();
-
-        if (clientesCreadosPorCrearCliente.isEmpty()){
-            System.out.println("No hay clientes registrados");
-        } else {
-            System.out.println("Datos de clientes registrados hasta la fecha: \n");
-            for (Cliente cliente: clientesCreadosPorCrearCliente){
-                System.out.println("Nombre: " + cliente.getNombre());
-                System.out.println("Primer Apellido: " + cliente.getPrimerApellido());
-                System.out.println("Segundo Apellido: " + cliente.getSegundoApellido());
-                System.out.println("Número de Documento (DNI): " + cliente.getNumeroDocumento());
-                System.out.println("Fecha de Registro: " + cliente.getFechaRegistro());
-                System.out.println("Correo Electrónico: " + cliente.getCorreoElectronico());
-                System.out.println("Teléfono: " + cliente.getTelefono());
-                System.out.println("Edad: " + cliente.getEdad() + "\n");
-            }
-        }
     }
 
 
@@ -211,22 +184,51 @@ public class Administrador extends Usuario implements IAdministrador, IAccionMen
     public void ejecutarAccion(int accionId) {
 
         switch (accionId){
-            case 1:this.crearAdministrador();break;
-            case 2:this.listarUsuarios(); break;
-            case 3:this.listarUsuario();break;
-            case 4:this.eliminarPedido();break;
-            case 5:this.eliminarUsuario();break;
-            case 6:this.eliminarCliente();break;
-            case 7:this.agregarOpcionComida();break;
-            case 8:this.editarOpcionComida();break;
-            case 9:this.eliminarOpcionComida();break;
-            case 10:this.agregarOpcionBebida();break;
-            case 11:this.crearCliente();break;
-            case 12:this.listarClientesCreados();break;
-            case 13:this.listarClientesTotales();break;
-            case 14:this.editarOpcionBebida();break;
-            case 15:this.eliminarOpcionBebida();break;
-            case 16:this.cambiarEstadoDelPedido();break;
+            case 1:
+                this.crearAdministrador();
+                break;
+            case 2:
+                this.listarUsuarios();
+                break;
+            case 3:
+                this.listarUsuario();
+                break;
+            case 4:
+                this.eliminarPedido();
+                break;
+            case 5:
+                this.eliminarUsuario();
+                break;
+            case 6:
+                this.eliminarCliente();
+                break;
+            case 7:
+                this.agregarOpcionComida();
+                break;
+            case 8:
+                this.editarOpcionComida();
+                break;
+            case 9:
+                this.eliminarOpcionComida();
+                break;
+            case 10:
+                this.agregarOpcionBebida();
+                break;
+            case 11:
+                this.crearCliente();
+                break;
+            case 12:
+                this.listarClientesTotales();
+                break;
+            case 13:
+                this.editarOpcionBebida();
+                break;
+            case 14:
+                this.eliminarOpcionBebida();
+                break;
+            case 15:
+                this.cambiarEstadoDelPedido();
+                break;
         }
     }
 }
