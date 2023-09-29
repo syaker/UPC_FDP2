@@ -1,13 +1,13 @@
-package upc.trabajo_final;
+package upc.trabajo_final.menu;
 
 
-public class Menu {
+public class MenuPadre {
     private String codigo;
     private String nombre;
     private String descripcion;
     private double precio;
 
-    public Menu(String codigo, String nombre, String descripcion, double precio) {
+    public MenuPadre(String codigo, String nombre, String descripcion, double precio) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;

@@ -1,16 +1,11 @@
-package upc.trabajo_final;
+package upc.trabajo_final.usuario;
 
-public class Usuario implements IUsuario {
-    String[][] usuarios = {
-            {"mozo","9882985", "Ana", "Perez", "Rodriguez", "20", "04/09/2023", "si", "anaperez@gmail.com", "999324235", "2000", "0"},
-            {"administrador","3298798", "Juan", "Martinat", "Chavez", "20", "19/11/2022", "si", "jmarti@gmail.com", "999767675", "2000", "0"},
-            {"cajero","3634643", "Nelly", "Tapia", "Ballena", "20", "28/02/2023", "si", "nellytb@gmail.com", "934534534", "1300", "0"},
-            {"mozo","3563456", "Gonzalo", "Lastra", "Fernandez", "20", "23/05/2023", "si", "gonza9899@gmail.com", "999435334", "5000", "0"},
-            {"mozo","5675675", "Carola", "Quintanilla", "Rodriguez", "20", "04/06/2023", "si", "caroquinta@gmail.com", "96977798", "2000", "0"},
-    };
+import upc.trabajo_final.interfaz_sistema.IAccionMenu;
+import upc.trabajo_final.menu.MenuManager;
+import upc.trabajo_final.menu.CategoriaCarta;
 
+public class Usuario implements IUsuario, IAccionMenu {
 
-    //Atributos
     private String tipoUsuario;
     private String numeroDocumento;
     private String nombre;
@@ -24,8 +19,6 @@ public class Usuario implements IUsuario {
     private double salario;
     private boolean anulado;
 
-
-    //Constructor
     public Usuario(String tipoUsuario, String numeroDocumento, String nombre, String primerApellido, String segundoApellido, String edad, String fechaIngreso, String inicioSesion, String correoElectronico, int telefono, double salario) {
         this.tipoUsuario = tipoUsuario;
         this.numeroDocumento = numeroDocumento;
@@ -41,54 +34,8 @@ public class Usuario implements IUsuario {
         this.anulado = false;
     }
 
+    public Usuario() {
 
-    //Getter y Setter
-    public boolean isAnulado() {
-        return anulado;
-    }
-
-    public void setAnulado(boolean anulado) {
-        this.anulado = anulado;
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
-    }
-
-    public int getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
-
-    public double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(double salario) {
-        this.salario = salario;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    public void setNumeroDocumento(String numeroDocumento) {
-        this.numeroDocumento = numeroDocumento;
     }
 
     public String getNombre() {
@@ -138,18 +85,74 @@ public class Usuario implements IUsuario {
     public void setInicioSesion(String inicioSesion) {
         this.inicioSesion = inicioSesion;
     }
+
+    public String getTipoUsuario() { return tipoUsuario; }
+
+    public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
+
+    public String getNumeroDocumento() { return numeroDocumento; }
+
+    public void setNumeroDocumento(String numeroDocumento) { this.numeroDocumento = numeroDocumento;}
+
+
+
+
+    @Override
+    public void consultarMenuBebidas() {
+        MenuManager menuManager = new MenuManager();
+        System.out.println("Menú de Bebidas:");
+        CategoriaCarta categoriaBebidas = menuManager.getMenuCarta().getCategoriaPorNombre("Bebidas");
+        if (categoriaBebidas != null) {
+            categoriaBebidas.mostrarCarta();
+        } else {
+            System.out.println("Categoría de Bebidas no encontrada.");
+        }
+    }
+    @Override
+    public void consultarMenuComidas() {
+        MenuManager menuManager = new MenuManager();
+        System.out.println("Menú de Comidas:");
+        CategoriaCarta categoriaComidas = menuManager.getMenuCarta().getCategoriaPorNombre("Comidas");
+        if (categoriaComidas != null) {
+            categoriaComidas.mostrarCarta();
+        } else {
+            System.out.println("Categoría de Comidas no encontrada.");
+        }
+    }
+
     @Override
     public boolean salirSistema() {
         return true;
     }
     @Override
     public void crearPedido() {
+        String valorIngresado;
+        MenuManager menuManager = new MenuManager();
+
         // Aqui se crea una nueva instancia de objeto a partir de la clase Pedido
+        System.out.println("Pedido creadooooooo FYI");
     }
     @Override
     public void editarPedido() {
     }
     @Override
     public void consultarMenu() {
+    }
+
+    @Override
+    public void ejecutarAccion(int accionId) {
+        switch (accionId) {
+            case 1:
+                this.crearPedido();
+                break;
+            case 2:
+                this.consultarMenuBebidas();
+                System.out.println();
+                break;
+            case 3:
+                this.consultarMenuComidas();
+                System.out.println();
+                break;
+        }
     }
 }

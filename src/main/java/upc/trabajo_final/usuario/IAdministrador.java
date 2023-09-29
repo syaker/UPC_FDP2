@@ -1,4 +1,4 @@
-package upc.trabajo_final;
+package upc.trabajo_final.usuario;
 
 public interface IAdministrador extends IUsuario {
     boolean crearAdministrador();
@@ -29,7 +29,5 @@ public interface IAdministrador extends IUsuario {
 
     void crearCliente();
 
-    void listarCliente();
-
-    void listarClientes();
+    void listarClientesTotales();
 }
