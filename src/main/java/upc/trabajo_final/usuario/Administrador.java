@@ -346,8 +346,6 @@ public class Administrador extends Usuario implements IAdministrador, IAccionMen
             case 17:
                 this.consultarRankingClientesFrecuentes();
                 break;
-            case 18:
-                break;
         }
     }
 }

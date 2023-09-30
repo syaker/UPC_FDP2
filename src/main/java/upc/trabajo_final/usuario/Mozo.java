@@ -11,9 +11,4 @@ public class Mozo extends Usuario implements IAccionMenu {
     public Mozo() {
        // super();
     }
-
-    /*@Override
-    public void ejecutarAccion(int accionId) {
-
-    }*/
 }

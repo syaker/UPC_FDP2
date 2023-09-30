@@ -3,6 +3,11 @@ package upc.trabajo_final.usuario;
 import upc.trabajo_final.interfaz_sistema.IAccionMenu;
 import upc.trabajo_final.menu.MenuManager;
 import upc.trabajo_final.menu.CategoriaCarta;
+import upc.trabajo_final.pedido.Pedido;
+import upc.trabajo_final.pedido.PedidosDB;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Usuario implements IUsuario, IAccionMenu {
 
@@ -46,56 +51,10 @@ public class Usuario implements IUsuario, IAccionMenu {
         this.nombre = nombre;
     }
 
-    public String getPrimerApellido() {
-        return primerApellido;
-    }
-
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-
-    public String getFechaIngreso() {
-        return fechaIngreso;
-    }
-
-    public void setFechaIngreso(String fechaIngreso) {
-        this.fechaIngreso = fechaIngreso;
-    }
-
-    public String getInicioSesion() {
-        return inicioSesion;
-    }
-
-    public void setInicioSesion(String inicioSesion) {
-        this.inicioSesion = inicioSesion;
-    }
-
     public String getTipoUsuario() { return tipoUsuario; }
 
-    public void setTipoUsuario(String tipoUsuario) { this.tipoUsuario = tipoUsuario; }
 
     public String getNumeroDocumento() { return numeroDocumento; }
-
-    public void setNumeroDocumento(String numeroDocumento) { this.numeroDocumento = numeroDocumento;}
-
-
-
 
     @Override
     public void consultarMenuBebidas() {
@@ -121,19 +80,47 @@ public class Usuario implements IUsuario, IAccionMenu {
     }
 
     @Override
-    public boolean salirSistema() {
-        return true;
-    }
-    @Override
     public void crearPedido() {
-        // Aqui se crea una nueva instancia de objeto a partir de la clase Pedido
-        System.out.println("Pedido creadooooooo FYI");
+        ArrayList<Pedido> totalPedidos = new PedidosDB().getListPedidos();
+
+        String codigoPedido;
+        String[] idsProductoRelacionado;
+        double montoTotal;
+        String fechaPedido;
+        String codigoCliente;
+
+        Scanner scPedido = new Scanner(System.in);
+
+        System.out.println("Ingresa el codigo del pedido:");
+        codigoPedido = scPedido.nextLine();
+        System.out.println("Ingresa el id del producto relacionado:");
+        idsProductoRelacionado = new String[]{scPedido.nextLine()};
+        System.out.println("Ingresa el monto total:");
+        montoTotal = scPedido.nextInt();
+        System.out.println("Ingresa el fecha del pedido en formato (dd/MM/yyyy):");
+        fechaPedido = scPedido.nextLine();
+        System.out.println("Ingresa el codigo del cliente:");
+        codigoCliente = scPedido.nextLine();
+
+        totalPedidos.add(new Pedido(codigoPedido, idsProductoRelacionado, montoTotal, fechaPedido, "", codigoCliente, false, false));
+
+        Pedido pedidoCreado = this.obtenerPedidoPorCodigo(totalPedidos, codigoPedido);
+
+        System.out.println("\nEl pedido ha sido creado!!!!!");
+
+        System.out.println("\nLos datos del pedido son los siguientes:");
+
+        System.out.println("Codigo del pedido: " + pedidoCreado.getCodigoPedido() + "\nMonto Total: " + pedidoCreado.getMontoTotal());
     }
-    @Override
-    public void editarPedido() {
-    }
-    @Override
-    public void consultarMenu() {
+
+    public Pedido obtenerPedidoPorCodigo (ArrayList<Pedido> pedidos, String codigoPedido) {
+        Pedido pedido = null;
+        for (int i = 0; i < pedidos.size(); i++) {
+            if (pedidos.get(i).getCodigoPedido() == codigoPedido) {
+                pedido = pedidos.get(i);
+            }
+        }
+        return pedido;
     }
 
     @Override
