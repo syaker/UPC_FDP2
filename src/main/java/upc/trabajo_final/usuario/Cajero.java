@@ -120,6 +120,43 @@ public class Cajero extends Usuario implements IAccionMenu {
 
 
     public void cambiarEstadoDelPedido() {
+        Boolean anulado = false;
+        Boolean cobrado = false;
+        String codigoPedido;
+
+        String marcarComoAnulado;
+        String marcarComoCobrado;
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingresa el codigo del pedido:");
+        codigoPedido = scanner.nextLine();
+
+        Pedido pedidoEncontrado = obtenerPedidoPorCodigo(new PedidosDB().getListPedidos(), codigoPedido);
+
+        if (pedidoEncontrado != null) {
+
+            System.out.println("Deseas anular el pedido? (Escribe si o no)");
+            marcarComoAnulado = scanner.nextLine();
+
+            if (marcarComoAnulado == "si") {
+                anulado = true;
+            }
+
+            System.out.println("Deseas marcar el pedido como cobraro? (Escribe si o no)");
+            marcarComoCobrado = scanner.nextLine();
+
+            if (marcarComoCobrado == "si") {
+                cobrado = true;
+            }
+
+            pedidoEncontrado.setAnulado(anulado);
+            pedidoEncontrado.setCobrado(cobrado);
+
+        } else {
+            System.out.println("No se encontro un pedido con ese codigo");
+        }
+
     }
 
     public void consultarMontoVentaTotal() {
@@ -208,74 +245,17 @@ public class Cajero extends Usuario implements IAccionMenu {
 
             switch (accionId){
                 case 1:
-                    this.cobrarCuenta();
+                    this.crearPedido();
                     break;
                 case 2:
-                    this.editarCuenta();
-                    break;
-                case 3:
-                    this.crearCliente();
-                    break;
-                case 4:
-                    this.listarClientesTotales();
-                    break;
-                case 5:
                     this.cambiarEstadoDelPedido();
                     break;
-                case 6:
-                    this.consultarMontoVentaTotal();
+                case 3:
+                    this.cambiarEstadoDelPedido();
                     break;
-                case 7:
+                default:
                     break;
             }
     }
-
-
-
-    // ARREGLAR ESTA PARTE DEL CODIGO Y MOVERLO QUIZA A USUARIO
-        /*@Override
-        public void consultarMontoVentaTotal() {
-            // Crear la dniLista para almacenar los DNI
-            List<String> dniLista = new ArrayList<>();
-            //Agregando la lista de Cajeros:
-            Main objetoMain = new Main();
-            List<Cajero> listaCajero = objetoMain.getListCajeros();
-
-            for (Cajero datosCajeros : listaCajero) {
-                //la listaDatosCajeros será la lista que crearemos para añadir a los cajeros y sus datos
-                dniLista.add(datosCajeros.getNumeroDocumento());
-            }
-
-            if (dniLista.contains(contraseña)) {
-                //Agregando la lista de pedidos
-                List<Pedido> listaPedido = objetoMain.getListPedidos();
-
-                // Crear la lista para almacenar los pedidos ordenados cronológicamente
-                List<Pedido> pedidosOrdenados = new ArrayList<>(listaPedido);
-
-                // Ordenar los pedidos por fecha en orden ascendente (cronológico)
-                Collections.sort(pedidosOrdenados, new Comparator<Pedido>() {
-                    public int compare(Pedido pedido1, Pedido pedido2) {
-                        // Parsear las fechas y compararlas
-                        try {
-                            Date fecha1 = new SimpleDateFormat("yyyy-MM-dd").parse(pedido1.getFechaPedido());
-                            Date fecha2 = new SimpleDateFormat("yyyy-MM-dd").parse(pedido2.getFechaPedido());
-                            return fecha1.compareTo(fecha2);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                            return 0; // Manejo de error
-                        }
-                    }
-                });
-
-                // Imprimir los pedidos ordenados por fecha
-                for (Pedido pedido : pedidosOrdenados) {
-                    System.out.println("Fecha: " + pedido.getFechaPedido() + ", Monto Total: " + pedido.getMontoTotal());
-                }
-            } else {
-                System.out.println("Contraseña incorrecta. No tiene acceso.");
-            }
-        }*/
-
 }
 

@@ -23,7 +23,7 @@ public class MenuEstatico {
         elementosMenuMozo.add(new ElementoMenu(2, "Consultar carta de bebidas", null, mozoInstancia));
         elementosMenuMozo.add(new ElementoMenu(3, "Consultar carta de comidas", null, mozoInstancia));
         elementosMenuMozo.add(new ElementoMenu(4, "Consultar pedido", null, mozoInstancia));
-        elementosMenuMozo.add(new ElementoMenu(5, "Salir", null, mozoInstancia));
+        elementosMenuMozo.add(new ElementoMenu(-1, "Salir", null, mozoInstancia));
 
         this.menuMozo = new Menu(elementosMenuMozo, "Escoge una opcion");
 
@@ -47,20 +47,18 @@ public class MenuEstatico {
         elementosMenuAdministrador.add(new ElementoMenu(15, "Cambiar estado de pedido", null, administradorInstancia));
         elementosMenuAdministrador.add(new ElementoMenu(16, "Consultar lista general de pedidos", null, administradorInstancia));
         elementosMenuAdministrador.add(new ElementoMenu(17, "Consultar ranking de clientes fecuentes", null, administradorInstancia));
-        elementosMenuAdministrador.add(new ElementoMenu(18, "Salir", null, administradorInstancia));
+        elementosMenuAdministrador.add(new ElementoMenu(-1, "Salir", null, administradorInstancia));
 
         this.menuAdministrador = new Menu(elementosMenuAdministrador, "Escoge una opcion");
 
         // Cajero
         Cajero cajeroInstancia = new Cajero();
         ArrayList<ElementoMenu> elementosMenuCajero = new ArrayList<ElementoMenu>();
-        elementosMenuCajero.add(new ElementoMenu(1, "Cobrar cuenta", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(2, "Editar cuenta", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(3, "Crear cLiente", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(4, "Consultar lista de clientes totales", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(5, "Editar estado de pedido", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(6, "Consultar ventas del dia", null, cajeroInstancia));
-        elementosMenuCajero.add(new ElementoMenu(7, "Salir", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(1, "Crear pedido", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(2, "Cobrar pedido", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(3, "Anular pedido", null, cajeroInstancia));
+        elementosMenuCajero.add(new ElementoMenu(-1, "Salir", null, cajeroInstancia));
+
 
         this.menuCajero = new Menu(elementosMenuCajero, "Escoge una opcion");
 
